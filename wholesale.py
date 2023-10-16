@@ -2,7 +2,7 @@ import pandas as pd
 import re
 
 def run_wholesale_analysis(threshold):
-    df_wholesale = pd.read_csv('wholesale.csv')
+    df_wholesale = pd.read_csv('wholesale_chunk.csv')
 
     # Extraction functions
     email_pattern = r"'email':\s*'([^']+)'"
