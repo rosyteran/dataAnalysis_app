@@ -23,7 +23,7 @@ def run_wholesale_analysis(threshold):
         lambda x: re.search(last_name_pattern, str(x)).group(1) if pd.notnull(x) and re.search(last_name_pattern, str(x)) else None
     )
 
-    df_wholesale['created_at'] = pd.to_datetime(df_wholesale['created_at'])
+    df_wholesale['created_at'] = pd.to_datetime(df_wholesale['created_at'], utc = True)
     df_wholesale['month_year'] = df_wholesale['created_at'].dt.tz_localize(None).dt.to_period('M')
 
     filtered_data = df_wholesale[df_wholesale['total_price'] >= threshold]
